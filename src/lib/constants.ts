@@ -5,13 +5,13 @@ export const NAV_ITEMS = ["About", "Skills", "Experience", "Projects", "Contact"
 export const heroData: HeroData = {
   name: "Harsh Karan",
   title: "Full-Stack Developer",
-  subtitle: "Product-focused engineer | Currently building Ambill",
+  subtitle: "Product-focused engineer | Open to SDE roles",
   description:
-    "I design and ship scalable web applications with modern TypeScript and AWS. I care about clean, maintainable code and measurable impact.",
+    "Full‑stack developer with experience across modern TypeScript, Next.js, Node.js, and AWS. Currently contributing to production systems; interested in full‑time roles where I can own features end‑to‑end and collaborate closely with product and design.",
   location: "Jamshedpur, Jharkhand, India",
   ctas: [
-    { text: "View Projects", href: "#projects" },
-    { text: "Get In Touch", href: "#contact" },
+    { text: "View Experience", href: "#experience" },
+    { text: "Contact Me", href: "#contact" },
   ],
   social: [
     { platform: "LinkedIn", url: "#", icon: "linkedin" },
@@ -23,7 +23,7 @@ export const heroData: HeroData = {
 export const aboutData: AboutData = {
   title: "About Me",
   description:
-    "I’m a Full‑Stack Developer who enjoys turning ideas into reliable, user‑centric products. I work primarily with Next.js, Node.js, and AWS to build scalable systems with clear ownership and strong engineering practices. Currently, I’m working in a fintech startup and bringing the same product mindset to every domain I touch.",
+    "I’m a Full‑Stack Developer who ships reliable, maintainable software. My focus is clear ownership, well‑tested code, and thoughtful DX. Day‑to‑day I build with Next.js, Node.js, and AWS, working closely with cross‑functional teams to deliver measurable product outcomes.",
   achievements: [
     { metric: "25%", description: "Improved data processing throughput" },
     { metric: "40%", description: "Reduced manual error rates" },
