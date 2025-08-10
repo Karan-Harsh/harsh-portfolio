@@ -20,8 +20,8 @@ const projects = [...base, ...extraProjects];
 export default function ProjectsIndex() {
   return (
     <div className="section container">
-      <div className="mb-8 flex items-end justify-between gap-4">
-        <div>
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="min-w-0">
           <h1 className="text-3xl font-semibold tracking-tight">All Projects</h1>
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
             A selection of shipped work, experiments, and learning projects. Use this page as a running log — I’ll keep adding more as I build.
@@ -29,14 +29,14 @@ export default function ProjectsIndex() {
         </div>
         <Button asChild variant="outline"><Link href="/">← Back</Link></Button>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((p) => (
-          <SpotlightCard key={`${p.title}-${p.image}`} className="p-4">
+          <SpotlightCard key={`${p.title}-${p.image}`} className="w-full p-4">
             <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-border/40">
               <Image src={p.image} alt={p.title} fill className="object-cover" />
             </div>
             <h3 className="mt-4 text-lg font-medium">{p.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
+            <p className="mt-2 text-sm text-muted-foreground break-words">{p.description}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {p.technologies.map((t) => (
                 <Badge key={t}>{t}</Badge>
