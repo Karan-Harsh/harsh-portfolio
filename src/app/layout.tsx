@@ -11,7 +11,7 @@ const lexend = Lexend({ variable: "--font-lexend", subsets: ["latin"], weight: [
 const notoMono = Noto_Sans_Mono({ variable: "--font-noto-mono", subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
-  title: "Harsh Karan - Full-Stack Developer",
+  title: "Harsh Karan",
   description:
     "Full-Stack Developer focused on building scalable web applications with Next.js, Node.js, and AWS.",
   keywords: [

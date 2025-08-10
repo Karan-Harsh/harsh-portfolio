@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { heroData } from "@/lib/constants";
 import { Github, Linkedin, Globe, ChevronDown, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { useActiveSection } from "@/lib/active-section";
 import { useInView } from "react-intersection-observer";
 import AuroraSpotlight from "@/components/animations/AuroraSpotlight";
@@ -14,6 +15,9 @@ import AuroraSpotlight from "@/components/animations/AuroraSpotlight";
 export default function Hero() {
   const { setActiveSectionId } = useActiveSection();
   const { ref, inView } = useInView({ threshold: 0.5 });
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (inView) setActiveSectionId("home");
@@ -49,7 +53,11 @@ export default function Hero() {
           className="flex justify-center md:justify-end"
         >
           <div className="relative h-64 w-64 overflow-hidden rounded-full border border-border/50 md:h-64 md:w-64">
-            <Image src="/images/img2.png" alt="Harsh Karan" fill className="object-cover" />
+            {/* Theme-aware image swap using next-themes; hydration-safe */}
+            {(() => {
+              const src = mounted && resolvedTheme === "light" ? "/images/img5.png" : "/images/img2.png";
+              return <Image key={src} src={src} alt="Harsh Karan" fill className="object-cover" />;
+            })()}
           </div>
         </motion.div>
       </div>

@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useActiveSection } from "@/lib/active-section";
 import { Button } from "@/components/ui/Button";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-const items = NAV_ITEMS.map((label) => ({ label, href: `#${label.toLowerCase()}` }));
+const items = NAV_ITEMS.map((label) => ({ label, hash: `#${label.toLowerCase()}` }));
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -29,19 +30,19 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <a href="#home" className="font-semibold tracking-tight">HK</a>
+        <Link href="/" className="font-semibold tracking-tight">HK</Link>
         <nav className="hidden gap-6 md:flex">
           {items.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+            <Link
+              key={item.hash}
+              href={`/${item.hash}`}
               className={cn(
                 "text-sm text-muted-foreground hover:text-foreground transition-colors",
-                activeSectionId === item.href.slice(1) && "text-foreground"
+                activeSectionId === item.hash.slice(1) && "text-foreground"
               )}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2">
@@ -66,17 +67,17 @@ export default function Header() {
         <div className="border-t border-border/50 bg-background md:hidden">
           <div className="container flex flex-col gap-2 py-4">
             {items.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
+              <Link
+                key={item.hash}
+                href={`/${item.hash}`}
                 className={cn(
                   "py-2 text-sm text-muted-foreground hover:text-foreground transition-colors",
-                  activeSectionId === item.href.slice(1) && "text-foreground"
+                  activeSectionId === item.hash.slice(1) && "text-foreground"
                 )}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

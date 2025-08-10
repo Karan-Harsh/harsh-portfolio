@@ -58,7 +58,7 @@ export const experienceData: ExperienceItem[] = [
   {
     role: "Software Development Engineer",
     company: "Ambill",
-    duration: "August 2024 – Present",
+    duration: "September 2024 – Present",
     location: "Jamshedpur, India",
     type: "Full-Stack Developer - Finance Automation SaaS",
     achievements: [
@@ -70,7 +70,7 @@ export const experienceData: ExperienceItem[] = [
   {
     role: "Frontend Intern",
     company: "Ambill",
-    duration: "May 2024 – August 2024",
+    duration: "June 2024 – September 2024",
     location: "Jamshedpur, India",
     type: "Web Development Intern",
     achievements: [
@@ -105,6 +105,26 @@ export const projectsData: ProjectItem[] = [
     githubUrl: "#",
     liveUrl: "#",
     image: "/projects/insight-api.svg",
+  },
+  {
+    title: "LedgerView - Financial Reporting Dashboard",
+    description:
+      "Interactive reporting UI with drill-down analytics and exportable views for finance teams.",
+    technologies: ["Next.js", "Prisma", "PostgreSQL"],
+    features: ["Role-based views", "CSV/Excel export", "Saved filters"],
+    githubUrl: "#",
+    liveUrl: "#",
+    image: "/projects/insight-api.svg",
+  },
+  {
+    title: "QueuePilot - Job Orchestrator",
+    description:
+      "Distributed job orchestration with retries, backoff, and dashboard monitoring.",
+    technologies: ["Node.js", "Redis", "Docker"],
+    features: ["Retry policies", "dead-letter queue", "metrics panel"],
+    githubUrl: "#",
+    liveUrl: "#",
+    image: "/projects/inksync.svg",
   },
   {
     title: "InkSync - Real-Time Collaborative Whiteboard",
