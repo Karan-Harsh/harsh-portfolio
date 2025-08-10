@@ -24,7 +24,7 @@ export default function Projects() {
       <div className="container">
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
-          <Button asChild variant="link" className="text-sm">
+          <Button asChild variant="link" className="text-sm md:relative md:top-0 relative top-10">
             <Link href="/projects">View all →</Link>
           </Button>
         </div>

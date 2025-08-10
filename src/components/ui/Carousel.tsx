@@ -38,7 +38,7 @@ export default function Carousel({
       <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent" />
       {/* Controls */}
-      <div className="absolute -top-12 right-0 flex items-center gap-2">
+      <div className="hidden md:flex absolute top-2 right-2 items-center gap-2">
         <Button variant="outline" size="icon" aria-label="Previous" onClick={() => scrollBy(-1)}>
           <ChevronLeft className="h-4 w-4" />
         </Button>
