@@ -6,6 +6,8 @@ import ScrollProgress from "@/components/layout/ScrollProgress";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ActiveSectionProvider } from "@/lib/active-section";
+import PageTransition from "@/components/layout/PageTransition";
+import ScrollCursor from "@/components/layout/ScrollCursor";
 
 const lexend = Lexend({ variable: "--font-lexend", subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800", "900"] });
 const notoMono = Noto_Sans_Mono({ variable: "--font-noto-mono", subsets: ["latin"], weight: ["400", "700"] });
@@ -53,8 +55,11 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <ActiveSectionProvider>
             <ScrollProgress />
+            <ScrollCursor />
             <Header />
-            <main>{children}</main>
+            <main>
+              <PageTransition>{children}</PageTransition>
+            </main>
             <Footer />
           </ActiveSectionProvider>
         </ThemeProvider>

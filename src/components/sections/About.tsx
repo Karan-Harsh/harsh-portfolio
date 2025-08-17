@@ -7,14 +7,14 @@ import { useEffect } from "react";
 import { useActiveSection } from "@/lib/active-section";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import NumberTicker from "@/components/animations/NumberTicker";
 
 function Counter({ value }: { value: string }) {
   const numeric = parseFloat(value);
   const suffix = value.replace(String(numeric), "");
   return (
     <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-      {numeric}
-      {suffix}
+      <NumberTicker value={numeric} />{suffix}
     </motion.span>
   );
 }

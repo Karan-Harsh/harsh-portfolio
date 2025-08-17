@@ -12,6 +12,7 @@ import { useActiveSection } from "@/lib/active-section";
 import { useInView } from "react-intersection-observer";
 import AuroraSpotlight from "@/components/animations/AuroraSpotlight";
 import Starfield from "@/components/three/Starfield";
+import Magnetic from "@/components/animations/Magnetic";
 
 export default function Hero() {
   const { setActiveSectionId } = useActiveSection();
@@ -39,9 +40,11 @@ export default function Hero() {
           <p className="mt-4 max-w-xl text-muted-foreground">{heroData.description}</p>
           <div className="mt-6 flex gap-3">
             {heroData.ctas.map((cta) => (
-              <Button key={cta.href} asChild>
-                <a href={cta.href}>{cta.text}</a>
-              </Button>
+              <Magnetic key={cta.href}>
+                <Button asChild>
+                  <a href={cta.href}>{cta.text}</a>
+                </Button>
+              </Magnetic>
             ))}
           </div>
           <div className="mt-6 flex items-center gap-4 text-muted-foreground">
@@ -56,7 +59,16 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           className="flex justify-center md:justify-end"
         >
-          <div className="relative h-64 w-64 overflow-hidden rounded-full border border-border/50 md:h-64 md:w-64">
+          <div className="relative h-64 w-64 overflow-hidden rounded-full border border-border/50 md:h-64 md:w-64 will-change-transform"
+               onMouseMove={(e) => {
+                 const el = e.currentTarget;
+                 const rect = el.getBoundingClientRect();
+                 const dx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
+                 const dy = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
+                 el.style.transform = `rotateX(${dy * -6}deg) rotateY(${dx * 8}deg)`;
+               }}
+               onMouseLeave={(e) => { e.currentTarget.style.transform = "rotateX(0deg) rotateY(0deg)"; }}
+          >
             {/* Theme-aware image swap using next-themes; hydration-safe */}
             {(() => {
               const src = mounted && resolvedTheme === "light" ? "/images/img5.png" : "/images/img2.png";

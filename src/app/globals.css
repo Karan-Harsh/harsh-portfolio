@@ -48,6 +48,14 @@ body {
   color: var(--foreground);
 }
 
+/* Subtle cursor highlight */
+.cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  inset: 0;
+  z-index: 50;
+}
+
 /* Utility containers */
 .container {
   max-width: 72rem; /* ~1152px -> aligns with max-w-6xl */
