@@ -32,18 +32,28 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="font-semibold tracking-tight">HK</Link>
         <nav className="hidden gap-6 md:flex">
-          {items.map((item) => (
-            <Link
-              key={item.hash}
-              href={`/${item.hash}`}
-              className={cn(
-                "text-sm text-muted-foreground hover:text-foreground transition-colors",
-                activeSectionId === item.hash.slice(1) && "text-foreground"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {items.map((item) => {
+            const isActive = activeSectionId === item.hash.slice(1);
+            return (
+              <Link
+                key={item.hash}
+                href={`/${item.hash}`}
+                className={cn(
+                  "group relative text-sm text-muted-foreground transition-colors hover:text-foreground",
+                  isActive && "text-foreground"
+                )}
+              >
+                {item.label}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "pointer-events-none absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-foreground transition-transform duration-300",
+                    (isActive ? "scale-x-100" : "group-hover:scale-x-100")
+                  )}
+                />
+              </Link>
+            );
+          })}
         </nav>
         <div className="flex items-center gap-2">
           <Button

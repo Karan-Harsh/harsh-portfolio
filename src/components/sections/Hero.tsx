@@ -4,13 +4,14 @@ import Image from "next/image";
 import { TypewriterEffect } from "@/components/animations/TypewriterEffect";
 import { Button } from "@/components/ui/Button";
 import { heroData } from "@/lib/constants";
-import { Github, Linkedin, Globe, ChevronDown, Instagram } from "lucide-react";
+import { Github, Linkedin, ChevronDown, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { useActiveSection } from "@/lib/active-section";
 import { useInView } from "react-intersection-observer";
 import AuroraSpotlight from "@/components/animations/AuroraSpotlight";
+import Starfield from "@/components/three/Starfield";
 
 export default function Hero() {
   const { setActiveSectionId } = useActiveSection();
@@ -25,10 +26,13 @@ export default function Hero() {
 
   return (
     <section id="home" ref={ref} className="section relative overflow-hidden min-h-screen flex items-center">
+      <Starfield />
       <AuroraSpotlight />
       <div className="container grid items-center gap-10 md:grid-cols-2">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight md:text-6xl">{heroData.name}</h1>
+          <h1 className="text-4xl font-bold tracking-tight md:text-6xl bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-transparent">
+            {heroData.name}
+          </h1>
           <div className="mt-3 text-xl text-muted-foreground">
             <TypewriterEffect words={[heroData.title, heroData.subtitle]} />
           </div>

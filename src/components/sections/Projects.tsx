@@ -31,13 +31,13 @@ export default function Projects() {
         <div className="mt-6">
           <Carousel>
             {projectsData.map((p) => (
-              <Card key={p.title} className="flex h-full min-h-[24rem] flex-col group">
-                <div className="relative aspect-video w-full overflow-hidden rounded-md border border-border/50">
+              <Card key={p.title} className="flex h-full min-h-[24rem] flex-col group will-change-transform [transform-style:preserve-3d] transition-transform duration-300 hover:-translate-y-1">
+                <div className="relative aspect-video w-full overflow-hidden rounded-md border border-border/50 [transform:translateZ(20px)]">
                   <Image src={p.image} alt={p.title} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
                   <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                        style={{ background: "radial-gradient(600px circle at 50% 30%, rgba(255,255,255,0.08), transparent 40%)" }} />
                 </div>
-                <h3 className="mt-4 text-lg font-medium">{p.title}</h3>
+                <h3 className="mt-4 text-lg font-medium [transform:translateZ(10px)]">{p.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{p.description}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {p.technologies.map((t) => (

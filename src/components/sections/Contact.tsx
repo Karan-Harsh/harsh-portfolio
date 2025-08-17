@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { useEffect, useState } from "react";
 import { useActiveSection } from "@/lib/active-section";
 import { useInView } from "react-intersection-observer";
-import { Github, Linkedin, Globe, Instagram } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Name is too short"),
