@@ -6,16 +6,13 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useActiveSection } from "@/lib/active-section";
 import { Button } from "@/components/ui/Button";
-import { Menu, X, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu, X } from "lucide-react";
 
 const items = NAV_ITEMS.map((label) => ({ label, hash: `#${label.toLowerCase()}` }));
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const { activeSectionId } = useActiveSection();
-  const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
     const close = () => setOpen(false);
@@ -23,14 +20,10 @@ export default function Header() {
     return () => window.removeEventListener("hashchange", close);
   }, []);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <header className="fixed inset-x-0 top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed inset-x-0 top-0 z-40 frosted-glass border-b border-white/10 shadow-lg">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-semibold tracking-tight">HK</Link>
+        <Link href="/" className="font-semibold tracking-tight">Harsh Karan</Link>
         <nav className="hidden gap-6 md:flex">
           {items.map((item) => {
             const isActive = activeSectionId === item.hash.slice(1);
@@ -56,25 +49,13 @@ export default function Header() {
           })}
         </nav>
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Toggle theme"
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-          >
-            {mounted ? (
-              resolvedTheme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />
-            ) : (
-              <span className="h-4 w-4" />
-            )}
-          </Button>
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen((o) => !o)} aria-label="Toggle menu">
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </div>
       {open && (
-        <div className="border-t border-border/50 bg-background md:hidden">
+        <div className="border-t border-white/10 frosted-glass md:hidden">
           <div className="container flex flex-col gap-2 py-4">
             {items.map((item) => (
               <Link

@@ -39,7 +39,7 @@ export default function About() {
             <h3 className="text-lg font-medium">Achievements</h3>
             <div className="mt-4 grid grid-cols-2 gap-4">
               {aboutData.achievements.map((a) => (
-                <div key={a.description} className="rounded-lg border border-border/50 p-4">
+                <div key={a.description} className="rounded-lg backdrop-blur-sm bg-background/5 dark:bg-background/10 border border-border/30 p-4 shadow-lg">
                   <div className="text-2xl font-bold"><Counter value={a.metric} /></div>
                   <div className="mt-1 text-sm text-muted-foreground">{a.description}</div>
                 </div>

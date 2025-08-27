@@ -56,7 +56,8 @@ export default function Contact() {
         <h2 className="text-2xl font-semibold tracking-tight">{contactData.title}</h2>
         <p className="mt-2 max-w-2xl text-muted-foreground">{contactData.description}</p>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div className="frosted-glass rounded-xl p-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <Input placeholder="Name" {...register("name")} error={errors.name?.message} />
             <Input placeholder="Email" type="email" {...register("email")} error={errors.email?.message} />
             <Input placeholder="Subject" {...register("subject")} error={errors.subject?.message} />
@@ -68,8 +69,9 @@ export default function Contact() {
             </Button>
             {status === "success" && <p className="text-sm text-green-500">Message sent successfully!</p>}
             {status === "error" && <p className="text-sm text-red-500">Something went wrong. Please try again.</p>}
-          </form>
-          <div className="space-y-4">
+            </form>
+          </div>
+          <div className="frosted-glass rounded-xl p-6 space-y-4">
             <div>
               <div className="text-sm text-muted-foreground">Email</div>
               <a href={`mailto:${contactData.email}`} className="hover:underline">{contactData.email}</a>

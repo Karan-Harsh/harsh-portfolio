@@ -51,8 +51,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${lexend.variable} ${notoMono.variable} antialiased font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className={`${lexend.variable} ${notoMono.variable} antialiased font-sans relative`}>
+        {/* Fixed background image with frosted glass overlay */}
+        <div className="fixed inset-0 z-[-1] will-change-auto">
+          {/* Background image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed" 
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+            }}
+          />
+          {/* Dark overlay for better readability */}
+          <div className="absolute inset-0 bg-black/60" />
+          {/* Subtle gradient overlay that creates depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/40" />
+        </div>
+        
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <ActiveSectionProvider>
             <ScrollProgress />
             <ScrollCursor />
