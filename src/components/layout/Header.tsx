@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { useActiveSection } from "@/lib/active-section";
 import { Button } from "@/components/ui/Button";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import logo from "../../../public/images/logo.png"
 
 const items = NAV_ITEMS.map((label) => ({ label, hash: `#${label.toLowerCase()}` }));
 
@@ -23,7 +25,15 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 frosted-glass border-b border-white/10 shadow-lg">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-semibold tracking-tight">Harsh Karan</Link>
+        <Link href="/" className="font-semibold tracking-tight">
+          <Image 
+            src={logo} 
+            alt="Harsh Karan Logo" 
+            width={40} 
+            height={40}
+            className="h-8 w-auto"
+          />
+        </Link>
         <nav className="hidden gap-6 md:flex">
           {items.map((item) => {
             const isActive = activeSectionId === item.hash.slice(1);
