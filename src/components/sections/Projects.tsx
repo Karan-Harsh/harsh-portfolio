@@ -50,10 +50,10 @@ export default function Projects() {
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4 min-h-[2rem]">
                     {p.technologies.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
+                      <Badge key={tech} className="text-xs">{tech}</Badge>
                     ))}
                     {p.technologies.length > 3 && (
-                      <Badge variant="secondary" className="text-xs">+{p.technologies.length - 3}</Badge>
+                      <Badge className="text-xs">+{p.technologies.length - 3}</Badge>
                     )}
                   </div>
                   <div className="flex gap-2 mt-auto">

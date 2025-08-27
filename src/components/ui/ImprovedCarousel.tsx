@@ -25,7 +25,7 @@ export default function ImprovedCarousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const autoPlayRef = useRef<NodeJS.Timeout>();
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
   const totalSlides = children.length;
 
@@ -62,7 +62,7 @@ export default function ImprovedCarousel({
         clearInterval(autoPlayRef.current);
       }
     };
-  }, [autoPlay, autoPlayInterval, currentIndex]);
+  }, [autoPlay, autoPlayInterval, currentIndex, resetAutoPlay]);
 
   return (
     <div className={cn("relative w-full", className)}>
